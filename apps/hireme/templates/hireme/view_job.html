@@ -1,0 +1,64 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome</title>
+        <link rel="stylesheet" href="{% static "stylesheet/dashboard.css" %}" type="text/css">
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <a href="/index">Home</a>
+        <a href="/create">Upload</a>
+        <a href="/view_user">Profile</a>
+        <a href="/logout">Logout</a><br>
+        <h1>{{job.0.title}}</h1>
+        <p><strong>Uploaded By:</strong> {{job.0.created_by.first_name}}</h4>
+        <p><strong>Discription:</strong> {{job.0.info}}</p>
+        <p><strong>Email:</strong> {{ request.session.email}}</p>
+
+        <fieldset>
+            <legend>Comment Section:</legend>
+            <legend>Add Comment:</legend>
+            <form action="{%url 'add_comment' job_id=job.id %}" method="post">
+                {% csrf_token %}
+                <textarea name="jobComment" rows="3" cols="80" placeholder="Type Here...."></textarea><br>
+                <label>Rating</label>
+                <select name="ratings">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" name="" value="Add Comment"><br><br>
+            </form>
+            <fieldset class="inside_field">
+                <legend>Comments:</legend>
+                {% for comments in comments %}
+                <hr>
+                <p>Ratings: {{comments.ratings}}</p>
+                <p><a href="{%url 'view_user' user_id=comments.user.id %}">{{comments.user.first_name|title}}</a> says: {{comments.comment}}</p>
+                <p>Posted on {{comments.created_at}}</p>
+                {% endfor %}
+
+            </fieldset>
+
+
+        </fieldset>
+
+        <h3>Users that have saved this job:</h3>
+
+
+        <h3>Other Jobs Offered By This User:</h3>
+
+
+
+
+    </body>
+</html>

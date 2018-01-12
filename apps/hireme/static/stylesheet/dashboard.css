@@ -1,0 +1,39 @@
+
+
+h1{
+
+    font-family: Marker Felt, fantasy;
+    text-align: center;
+
+}
+div{
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 35%;
+    /* background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 75%); */
+}
+a:hover{
+    color: white;
+    background-color: gray;
+}
+button{
+    border-color: black;
+    background-color: white;
+    padding: 4px 30px 6px 30px;
+}
+
+a{
+
+    padding: 4px 30px 6px 30px;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: serif;
+    text-decoration: none;
+}
+legend{
+    font-size: 25px;
+    font-family: Marker Felt, fantasy;
+}

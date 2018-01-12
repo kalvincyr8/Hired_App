@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Upload Job</title>
+        <link rel="stylesheet" href="{% static "stylesheet/dashboard.css" %}" type="text/css">
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <a href="/index">Home</a>
+        <a href="/create">Upload Job</a>
+        <a href="/view_user">Profile</a>
+        <a href="/logout">Logout</a><br>
+        <h1>Upload a new Job</h1>
+        <form class="" action="/addJob" method="post">
+            {% csrf_token %}
+            Title:<input type="text" name="jobTitle" value=""><br>
+            <label>Discription:</label><br>
+                <textarea name="jobInfo" rows="8" cols="80"></textarea><br>
+            <input type="submit" name="" value="Add">
+        </form>
+    </body>
+</html>

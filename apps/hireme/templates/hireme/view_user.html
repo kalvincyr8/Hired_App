@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Profile</title>
+        <link rel="stylesheet" href="{% static "stylesheet/dashboard.css" %}" type="text/css">
+
+    </head>
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <a href="/index">Home</a>
+        <a href="/create">Upload</a>
+        <a href="/logout">Logout</a><br>
+
+        <br>
+        <h1>{{ request.session.first_name }}'s Page</h1>
+        <fieldset>
+            <legend>Basic Info</legend>
+            <p><bold>First Name:</bold> {{ request.session.first_name}}</p>
+            <p><bold>Email:</bold> {{ request.session.email}}</p>
+            <h3>Jobs You Offer:</h3>
+            <table>
+            <tr>
+                <th>Job Title</th>
+                <th>Uploaded By</th>
+            </tr>
+            {% for item in my_jobList %}
+            <tr>
+                <td><a href="{%url 'view_job' id=item.id%}">{{item.title}}</a></td>
+                <td>{{item.created_at.date}}</td>
+                {%if item.created_by.name == request.session.name%}
+                <td><form class="" action="{%url 'deleteJob' id=item.id%}" method="post">
+                {% csrf_token %}
+                    <input type="submit" name="" value="Delete">
+                    </form>
+                </td>
+
+                {%else%}
+
+                <td><form class="" action="{%url 'wishlist:removeProduct' id=item.id%}" method="post">
+                {% csrf_token %}
+                    <input type="submit" name="" value="Remove from your wishlist">
+                    </form>
+                </td>
+                {%endif%}
+            </tr>
+            {% endfor %}
+            </table>
+        </fieldset>
+    </body>
+</html>

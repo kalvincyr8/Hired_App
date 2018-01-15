@@ -2,7 +2,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Job, Comment
+from .models import Job
 from ..login_reg.models import User
 
 

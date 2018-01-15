@@ -70,20 +70,6 @@ class JobManager(models.Manager):
         return response
 
 
-class CommentManager(models.Manager):
-    def add_comment(self, job_id, user_id, POST):
-        errors = []
-        if POST['comment'] == "":
-            errors.append("Comment cannot be blank")
-            return False, errors
-        U1 = User.objects.get(id = user_id)
-        B1 = Job.objects.get(id = job_id)
-        Comment.objects.create(comment = POST['comment'], ratings = POST['ratings'], user= U1, job = B1)
-        errors.append("Comment added Success! ")
-        return True, errors
-
-
-
 class Job(models.Model):
     title = models.CharField(max_length=48)
     info = models.CharField(max_length=240)
@@ -93,13 +79,3 @@ class Job(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     objects = JobManager()
-
-
-class Comment(models.Model):
-    comment = models.TextField()
-    ratings = models.IntegerField(null = True)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
-    user = models.ForeignKey(User, related_name='comment_by')
-    job = models.ForeignKey(Job, related_name='on_job')
-    objects = CommentManager()

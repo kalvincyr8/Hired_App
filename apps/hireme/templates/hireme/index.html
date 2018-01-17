@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <title>Welcome</title>
-        <link rel="stylesheet" href="{% static "css/dashboard.css" %}" type="text/css">
+        <link rel="stylesheet" href="{% static "style/dashboard.css" %}" type="text/css">
     </head>
     <body>
         {% if messages %}
@@ -13,20 +13,51 @@
                 <p>{{ message }}</p>
             {% endfor %}
         {% endif %}
-        <div class="header">
-            <h1>Hirεd.</h1>
-            <h2>Welcome, {{request.session.first_name}}!</h2>
-        </div>
-        <div class="nav">
-
-        <!-- <a href="">About Us </a> -->
-
-        <a href="/create">Upload </a>
-        <a href="/view_user">Profile</a>
-        <a href="/logout">Logout </a><br>
-        </div>
+        <div id="wrapper">
 
 
+            <div class="header">
+                <h1>hired.</h1>
+                <p>A Django Project</p>
+                <h2>Welcome, {{request.session.first_name}}!</h2>
+            </div>
+            <div class="nav">
+            <!-- <a href="">About Us </a> -->
+                <a href="/create">Upload </a>
+                <a href="/view_user">Profile</a>
+                <a class="logout" href="/logout">Logout </a><br>
+            </div>
+
+            <div class="my_jobs">
+                <h3>Jobs You Offer</h3>
+                <table>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Uploaded On</th>
+                        <th></th>
+                    </tr>
+                        {% for item in my_jobList %}
+                        <td><a href="{%url 'view_job' id=item.id%}">{{item.title}}</a></td>
+                        <td>{{item.created_at.date}}</td>
+                        {%if item.created_by.name == request.session.name%}
+                        <td><form class="" action="{%url 'deleteJob' id=item.id%}" method="post">
+                        {% csrf_token %}
+                            <input type="submit" name="" value="Delete Job">
+                            </form>
+                        </td>
+                        {%else%}
+
+                        <td><form class="" action="{%url 'save_job' id=item.id%}" method="post">
+                        {% csrf_token %}
+                            <input type="submit" name="" value="Remove from your wishlist">
+                            </form>
+                        </td>
+                        {%endif%}
+                    </tr>
+                    {%endfor%}
+                </table>
+
+            </div>
         <!-- <h3>Jobs You Offer:</h3>
         <table>
         <tr>
@@ -55,25 +86,43 @@
         </tr>
         {% endfor %}
         </table> -->
-        <div class="sidebar">
-        <h3>Jobs Other Users Offer:</h3>
-        <table>
-            <tr>
-                <th>Job List</th>
-                <th>Uploaded On</th>
-            </tr>
-            <tr>
-                {% for item in jobList %}
-                <td><a href="{%url 'view_job' id=item.id%}">{{item.title}}</a></td>
-                <td>{{item.created_at.date}}</td>
-                <td></td>
-                <td></td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="other_jobs">
+            <h3>Jobs Other Users Offer:</h3>
+            <table>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Uploaded On</th>
+                    <th>Uploaded By</th>
+                    <th>Save Job</th>
+                </tr>
+                <tr>
+                    {% for item in jobList %}
+                    <td><a href="{%url 'view_job' id=item.id%}">{{item.title}}</a></td>
+                    <td>{{item.created_at.date}}</td>
+                    <td>{{ item.created_by.first_name }}</td>
 
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    <div class="footer">
+        <h4>HireMe.</h4>
+        <a href="mailto:kalvincyr8@gmail.com">
+        <img class="icons" src="{% static "images/microsoft-icon.png" %}" alt="microsoft-icon">
+        </a>
+        <a href="mailto:kalvincyr8@gmail.com">
+        <img class="icons" src="{% static "images/linkedin-icon.png" %}" alt="microsoft-icon">
+        </a>
+        <a href="mailto:kalvincyr8@gmail.com">
+        <img class="icons" src="{% static "images/twi-icon.png" %}" alt="microsoft-icon">
+        </a>
+        <a href="https://github.com/kalvincyr8">
+        <img class="icons" src="{% static "images/github-icon.png" %}" alt="microsoft-icon">
+        </a>
     </div>
-
+</div>
 
 
 

@@ -1,0 +1,139 @@
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    background-image: URL("http://www.qygjxz.com/data/out/255/4322003-white-background-image.png");
+    display: inline-block;
+    height: auto;
+    width: 100%;
+}
+.header{
+    /* background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); */
+    height:75px;
+    width: 100%;
+    display: inline-block;
+
+}
+ p {
+    display: inline-block;
+    margin-left: 15%;
+    color: gray;
+}
+h1{
+    margin-left: 2.5%;
+    font-family: courier;
+    font-size: 55px;
+    display: inline;
+
+
+}
+
+h2{
+    font-size: 15px;
+    /* font-family: Marker Felt, fantasy; */
+    margin-right: 2.5%;
+    text-align: right;
+    margin-top: -33px;
+}
+.nav{
+    background-color: lightgray;
+    /* border-bottom: 1px solid black; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+    /* background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); */
+
+a:hover{
+    color: white;
+    background-color: gray;
+}
+button{
+    border-color: black;
+    background-color: white;
+    padding: 4px 30px 6px 30px;
+}
+
+a{
+
+    padding: 4px 30px 6px 30px;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: serif;
+    text-decoration: none;
+}
+.logout{
+    margin-left: 55%;
+}
+legend{
+    font-size: 25px;
+    font-family: Marker Felt, fantasy;
+}
+.my_jobs{
+    margin: auto;
+    width: 50%;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    height: 100px;
+    overflow: hidden;
+    overflow-y: scroll;
+    /* background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 250%);
+
+}
+.other_jobs{
+    margin: auto;
+    width: 50%;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    height: 500px;
+    overflow: hidden;
+    overflow-y: scroll;
+    /* background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 250%);
+
+}
+th{
+    text-align: center;
+}
+input:hover{
+    color: red;
+}
+input{
+    margin-left: 45%;
+
+}
+h3{
+    text-align: center;
+    font-family: courier;
+
+}
+h4{
+    margin-left: 2.5%;
+    font-family: courier;
+    font-size: 35px;
+
+}
+tr{
+    border-left: 1px solid black;
+}
+td{
+    text-align: center;
+}
+.footer{
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+
+}
+.icons{
+    margin: auto;
+
+    height: 40px;
+}

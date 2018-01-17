@@ -1,0 +1,102 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    background-image: URL("https://png.pngtree.com/element_origin_min_pic/17/08/27/2c1529f4dedc6e7b3ef221f30287ecef.jpg");
+    display: inline-block;
+    height: auto;
+    width: auto;
+}
+
+.header{
+    display: inline-block;
+    height: 55px;
+    width: 100%;
+    border-top: 15px solid lightgray;
+    border-bottom: 5px solid lightgray;
+    padding-bottom: 5px;
+}
+
+.login{
+    display: inline-block;
+
+    margin-left: auto;
+}
+.info{
+    display: inline-block;
+    height: auto;
+    width: 350px;
+    margin-left: 30px;
+    margin-top: 10px;
+    padding: 5px;
+    color: black;
+    font-family: serif;
+    font-size: 15px;
+    /* background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); */
+    border: 2px solid gray;
+    border-radius: 5px;
+    text-align: center;
+}
+.index{
+
+
+    height: auto;
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+
+    margin-left: 10%;
+    margin-top: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.hired{
+    margin: 5px;
+
+    height: 225px;
+    width: 350;
+    display: inline-block;
+}
+/* .registerdiv{
+    display: inline-block;
+    margin: -70% 2.5% 2.5% 70%;
+
+    width: 145px;
+    height: auto;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    padding: 10px;
+} */
+.register{
+    display: inline-block;
+    /* display: inline-block; */
+    margin: -70% 2.5% 2.5% 70%;
+
+    width: 145px;
+    height: auto;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    padding: 10px;
+}
+input{
+    padding: 6px;
+    margin-top: 5px;
+    display: inline-block;
+
+}
+h1{
+    font-family: sans-serif;
+    display: inline-block;
+    color: black;
+    margin-right: 10%;
+    margin-left: 5%;
+    font-size: 50px;
+}
+.header,p{
+    color: gray;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}

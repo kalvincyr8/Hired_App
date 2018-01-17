@@ -4,30 +4,42 @@
         <meta charset="utf-8">
         <title>Welcome</title>
         {%load static%}
-        <link rel="stylesheet" href="{% static "stylesheet/index.css" %}" type="text/css">
+        {%load staticfiles %}
+
+        <link rel="stylesheet" href="{% static "css/index.css" %}" type="text/css">
 
     </head>
     <body>
+        <div id="wrapper">
+            <!-- <img class="background" src="{% static "images/background.png" %}" alt=""> -->
         {% if messages %}
             {% for message in messages %}
                 <p>{{ message }}</p>
             {% endfor %}
         {% endif %}
-        <div class="log_in">
-            <legend>Log in</legend>
-                <form class="login" action="/login" method="post">
-                {% csrf_token %}
-                    <label for="email">Email: </label>
-                    <input type="email" name="email"><br>
+        <div class="header">
+            <h1>hired.</h1>
+            <p>A Django Project</p>
 
-                    <label for="password">Password: </label>
-                    <input type="password" name="password"><br>
+                    <form class="login" action="/login" method="post">
+                    {% csrf_token %}
 
-                    <input type="submit" name="" value="Submit">
-                </form>
-        </div>
-        <div class="register">
-            <legend>Register</legend>
+                        <input type="email" name="email" placeholder="Email">
+
+
+                        <input type="password" name="password" placeholder="Password">
+
+                        <input type="submit" name="" value="Log In">
+                    </form>
+                    </div>
+
+        <div class="index">
+
+            <img class="hired" src="{% static "images/hire-devloper.png" %}" alt="You're Hired">
+            <p class="info">Looking for a job? Looking to offer a Service? Or just here to see a Django Project. If you dont have an Account already, Please Create an Account here --></p>
+        <!-- <div class="registerdiv"> -->
+
+
                 <form class="register" action="/register" method="post">
                     {% csrf_token %}
                     <label for="first_name">First Name: </label>
@@ -37,7 +49,7 @@
                     <input type="text" name="last_name"><br>
 
                     <label for="email">Email: </label>
-                                    <input type="email" name="email"><br>
+                    <input type="email" name="email"><br>
 
                     <label for="password">Password: </label>
                     <input type="password" name="password"><br>
@@ -46,6 +58,8 @@
                     <input type="password" name="password_confirm"><br>
                     <input type="submit" name="" value="Submit">
                 </form>
-        </div>
+        <!-- </div> -->
+    </div>
+</div>
     </body>
 </html>
